@@ -193,6 +193,17 @@ Common Steps
   Segmentation
 
 
+Steps
+
+  acoustic-phonetic pg 71
+    pattern measurement
+
+  pattern-recognition
+    pattern measurement
+    pattern comparison
+    decision making
+
+
 TERMS
 
   Filter Bank
@@ -207,3 +218,30 @@ short time spectral envelope
 vector quantization - encoding a continous spectral representation by a 'typical' spectral shape
 
 Q bandpass filters
+
+s(n) passes through band of Q bandpass finter covering frequency range
+  individual filters can do do overlap in frequency
+
+Xₙ(eⁱᵂⁱ)
+wᵢ = 2πfᵢ/Fₛ
+Fₛ is the sampling frequency
+
+short time spectral representation of signal s(n) at time n as seen through ith bandpass filter
+
+
+Filters
+
+bandpass -> nonlinear -> lowpass -> sampling rate reduction -> amplitude compression
+
+  bandpass - reject anything that is not speech
+
+  lowpass - filter out noice
+
+  sampling rate reduction - resampled at 40-6- Hz (economy of representation)
+
+  amplitue compression - compress bit-rate
+
+Implementations
+  infinite impulse response (IIR) (recursive filters)
+
+  finite impulse response (FIR)

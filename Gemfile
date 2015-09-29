@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -36,6 +36,7 @@ gem 'wavefile'
 gem 'd3-rails'
 gem 'coderay'
 gem 'haml-rails'
+gem 'noyes'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
