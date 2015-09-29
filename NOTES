@@ -1,0 +1,209 @@
+
+objective classify acoustics -> phoneme -> words -> sentences
+
+Speech Signals
+
+classification of speech sounds.
+  characterize in terms of broad acoustic features whose properties relatively invariant across words and speakers
+
+
+speech signal is a slowly time varying singal
+  when examined over sufficiently short periods of time (5-100 msec) it's characteristics are fairly stationary
+
+  this breaks down at around (1/5 second or more)
+
+spectral representation - spectrogram
+  intenisty in different frequency bands over time
+
+  wideband 
+    15msec sections
+    125 Hz analysis
+    1 msec intervals
+
+  narrowband
+    50msec sections
+    40 Hz analysis
+    1 msec intervals
+
+  voiced regions - pitch are almost-horizontal lines
+  unvoiced - high frequency energy
+  silence - almost nothing (reduced signal level)
+
+  formants - natural frequencies of the resonance tube (vocal tract)
+    frequencies that pass the most acoustic energy
+
+    signifigant for vocal tract three below 3500Hz
+
+    diificult to get reliably for low-level voiced sounds and unvoiced or silence regions
+
+    frequency for different vowells vary greatly between different speakers
+
+    F1-F2 plane, vowell triangle
+
+phone/phoneme representations
+
+  vowells (periodic)
+    not very important in written text but in SR they are very important
+    fixed acoustic shape
+
+  dipthong
+    gliding monosyllabic speecch
+    starts near one vowell ends with another
+    measure as plot F1-F2 formants over time. time-varying vocal tract area function
+
+  semi-vowells /w/, /l/, /r/, /y/
+    difficult to characterize
+    generally gliding transition between adjacent phonemes
+     thus acoustic characteristics are strongly influenced by context
+
+  consonants (aperiodic)
+
+  nasal consonants /m/, /n/, /nj/
+    look similar
+
+  unvoiced fricatives /f/, /theta/, /s/, /sh/
+    steady air flow -> turbulent in region of constriction
+
+  voiced fricatives /v/, /th/, /z/ /zh/
+
+  stops /b/, /d/, /g/
+    build then release
+
+
+PROBLEMS
+  
+  coarticulation
+
+    when words share a phoneme with previous word
+
+
+Approach 1 - acoustic-phonetic approach using sequential detection
+
+  classify signal as in different states
+    silence (S)
+    unvoiced (U)
+    voiced (V)
+
+    difficult to distinguish say /f/ or /th/ from silence
+    weak voiced sound /v/ or /m/ from unvoiced or silence
+
+  step 1
+    segmentation & labeling (hard to get accurate)
+      segment into discrete time regions
+      label as one or more potential phonemes
+
+      uses training data
+
+    word recognition
+      reconstruct labels into a valid word
+
+
+  speach analysis (filter bank) -> 
+  feature detection -> 
+    formants, pitch, voiced/unvoiced, energy, nasality, frication
+  segmentation & labeling 
+    phoneme lattice, segment lattice, probabilistic labeling, decision tree, parsing strategy
+  control strategy
+
+  segmentation
+    find stable regions (where features change very little)
+
+  pg 47. vowel classifier
+
+  drawbacks
+    no well defined automatic tuning procedure (i.e. adjusting descision thresholds)
+    (not evel uniformly agreed upon way to label trainig speech by experts)
+
+Approach 2 - pattern-recognition
+  speech is 'learned' via a training phase
+
+  advantages/disadvantages
+    simplicity
+    robustness and invariance to different speech aspects (vocabs, users, features)
+      used for a wide range of speech units (phoneme, word, word phrases, sentence)
+    proven performance
+
+    sensitive to amount of training data available (usually more the better)
+
+    reference patterns are sensitive to speaking environment
+
+    no speech-specific knowledge used - relatively insensitive to vocab, task, syntax, semantics
+
+    computational load for training and classification in generally linearly proportional to number of patterns trained or recognized. computation can become prohibitive
+
+    system is relatively insensitive to sound class making it applicable to a wide range of speech sounds/phrases/words/subwords/sentences
+
+    relatively straitforward to incorporate syntactic/semantic constraints
+
+
+  step 1 - define the test pattern
+    feature measurements output of spectral analysis (filter bank, linear predictive coding, discrete fourier transform)
+
+  step 2 - pattern training (creates reference pattern)
+    one or more test patterns corresponding to speech sounds
+    can be result of an exemplar, resultof an averaging technique, a model that charcterizes the features of a pattern
+    spectral distance & global alignment (dynamic time warping)
+
+  step 3 - pattern classification
+    compute simliarity between test pattern and reference pattern
+
+  step 4 - decision logic
+    decide which pattern or sequence of patterns best matches unkown test pattern
+
+Approach 3 - AI
+  combination of acoustic-phonetic and pattern-recognition
+
+  pg 55 different models
+
+  inncluding combined knowledged
+    acoustic, lexical, syntatic, semantic, pragmatic
+
+  Key Concepts
+    Learning
+    Adaptation
+
+
+submethod 1 - Neural Network
+  could represent seperate approach or be combined with any of the above approaches
+
+  dense interconnection parallel distributed computational elements
+
+  pg 57
+
+  for example inputs to a multilayer perceptron are F1 & F2 map a set of decsions to 10 steady state vowels. classifying on a hyper plane
+
+  advantages
+    massively parallel
+    robust least sensitive to noise
+    connections can adapt
+    sufficiently large newtork can approximate any nonlinearity or nonlinear dynamic system
+
+  to adapt to dynamic pattern of speech
+    time delay neural network
+    input to each element includes N speech frames
+
+Common Steps
+  
+  Speech Analysis
+    Filter bank methods and linear predictive coding (LPC) methods (spectral descriptions)
+
+  Feature Extraction
+    formants, pitch, voiced/unvoiced, energy, nasality, frication
+
+  Segmentation
+
+
+TERMS
+
+  Filter Bank
+  LPC - Linear predictive coding
+
+SIGNAL PROCESSING aka Spectral Analysis (Front End)
+
+filter bank, LPC, [cochlea mechanics modeling]
+
+short time spectral envelope
+
+vector quantization - encoding a continous spectral representation by a 'typical' spectral shape
+
+Q bandpass filters
