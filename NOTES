@@ -1,74 +1,51 @@
 
-objective classify acoustics -> phoneme -> words -> sentences
+BACKGROUND KNOWLEDGE
 
-Speech Signals
+  Advanced Calculus
+  Linear Algebra
+  Matrix Theory
 
-classification of speech sounds.
-  characterize in terms of broad acoustic features whose properties relatively invariant across words and speakers
+
+  Linear System
+    y = ᶲ(m x n matrix acting on Euclidean space aka linear operator on a Hilbert space) x
+
+    vector x is a signal or input
+    ᶲ the transform-sample matrix-filter
+    vector y the sample or output
+
+    problem is to reconstruct x from y aka reconstruct an altered version of x from an altered y
+      i.e. analyze signal in terms of frequency components and various combinations of time & frequency components y
+
+    may alter some component parts to eeliminate undesirable features or to compress
+
+    Analysis - decompose
+
+    Processing - transform
+
+    Synthesis - reconstruct
+
+    invertible (Fourier)
+    undetermined (bandlimited functions, windowed Fourier transform, frames) - unique solution can only be obtained if x is restricted
+    overdetermined (filter banks) - can throw soem information away from y and still recover x
+    collection Euclidean space
+
+    Vector Space - a linear space of objects closed under associative, distributive and commutative laws
+
+    Span -> a linear space may be generated from a smaller collection of its members by linear combinations
+
+    Hilbert Space - complete inner product space
 
 
-speech signal is a slowly time varying singal
-  when examined over sufficiently short periods of time (5-100 msec) it's characteristics are fairly stationary
+OBJECTIVE
+  classify contiguous signal as
+   phoneme -> words -> sentences
 
-  this breaks down at around (1/5 second or more)
+TERMS
 
-spectral representation - spectrogram
-  intenisty in different frequency bands over time
+  Filter Bank
+  LPC - Linear predictive coding
 
-  wideband 
-    15msec sections
-    125 Hz analysis
-    1 msec intervals
-
-  narrowband
-    50msec sections
-    40 Hz analysis
-    1 msec intervals
-
-  voiced regions - pitch are almost-horizontal lines
-  unvoiced - high frequency energy
-  silence - almost nothing (reduced signal level)
-
-  formants - natural frequencies of the resonance tube (vocal tract)
-    frequencies that pass the most acoustic energy
-
-    signifigant for vocal tract three below 3500Hz
-
-    diificult to get reliably for low-level voiced sounds and unvoiced or silence regions
-
-    frequency for different vowells vary greatly between different speakers
-
-    F1-F2 plane, vowell triangle
-
-phone/phoneme representations
-
-  vowells (periodic)
-    not very important in written text but in SR they are very important
-    fixed acoustic shape
-
-  dipthong
-    gliding monosyllabic speecch
-    starts near one vowell ends with another
-    measure as plot F1-F2 formants over time. time-varying vocal tract area function
-
-  semi-vowells /w/, /l/, /r/, /y/
-    difficult to characterize
-    generally gliding transition between adjacent phonemes
-     thus acoustic characteristics are strongly influenced by context
-
-  consonants (aperiodic)
-
-  nasal consonants /m/, /n/, /nj/
-    look similar
-
-  unvoiced fricatives /f/, /theta/, /s/, /sh/
-    steady air flow -> turbulent in region of constriction
-
-  voiced fricatives /v/, /th/, /z/ /zh/
-
-  stops /b/, /d/, /g/
-    build then release
-
+  Short Time - sound analysis based out short times. (stationary aspects of speech)
 
 PROBLEMS
   
@@ -76,81 +53,148 @@ PROBLEMS
 
     when words share a phoneme with previous word
 
+SPEECH ACOUSTICS
 
-Approach 1 - acoustic-phonetic approach using sequential detection
+  classification of speech sounds.
+    characterize in terms of broad acoustic features whose properties relatively invariant across words and speakers
 
-  classify signal as in different states
-    silence (S)
-    unvoiced (U)
-    voiced (V)
+  speech signal is a slowly time varying singal
+    when examined over sufficiently short periods of time (5-100 msec) it's characteristics are fairly stationary
 
-    difficult to distinguish say /f/ or /th/ from silence
-    weak voiced sound /v/ or /m/ from unvoiced or silence
+    this breaks down at around (1/5 second or more)
 
-  step 1
-    segmentation & labeling (hard to get accurate)
-      segment into discrete time regions
-      label as one or more potential phonemes
+  spectral representation - spectrogram
+    intenisty in different frequency bands over time
 
-      uses training data
+    wideband 
+      15msec sections
+      125 Hz analysis
+      1 msec intervals
 
-    word recognition
-      reconstruct labels into a valid word
+    narrowband
+      50msec sections
+      40 Hz analysis
+      1 msec intervals
+
+    voiced regions - pitch are almost-horizontal lines
+    unvoiced - high frequency energy
+    silence - almost nothing (reduced signal level)
+
+    formants - natural frequencies of the resonance tube (vocal tract)
+      frequencies that pass the most acoustic energy
+
+      signifigant for vocal tract three below 3500Hz
+
+      diificult to get reliably for low-level voiced sounds and unvoiced or silence regions
+
+      frequency for different vowells vary greatly between different speakers
+
+      F1-F2 plane, vowell triangle
+
+  phone/phoneme representations
+
+    vowells (periodic)
+      not very important in written text but in SR they are very important
+      fixed acoustic shape
+
+    dipthong
+      gliding monosyllabic speecch
+      starts near one vowell ends with another
+      measure as plot F1-F2 formants over time. time-varying vocal tract area function
+
+    semi-vowells /w/, /l/, /r/, /y/
+      difficult to characterize
+      generally gliding transition between adjacent phonemes
+       thus acoustic characteristics are strongly influenced by context
+
+    consonants (aperiodic)
+
+    nasal consonants /m/, /n/, /nj/
+      look similar
+
+    unvoiced fricatives /f/, /theta/, /s/, /sh/
+      steady air flow -> turbulent in region of constriction
+
+    voiced fricatives /v/, /th/, /z/ /zh/
+
+    stops /b/, /d/, /g/
+      build then release
+
+APPROACHES
+  Approach 1 - acoustic-phonetic approach using sequential detection
+
+    classify signal as in different states
+      silence (S)
+      unvoiced (U)
+      voiced (V)
+
+      difficult to distinguish say /f/ or /th/ from silence
+      weak voiced sound /v/ or /m/ from unvoiced or silence
+
+    step 1
+      segmentation & labeling (hard to get accurate)
+        segment into discrete time regions
+        label as one or more potential phonemes
+
+        uses training data
+
+      word recognition
+        reconstruct labels into a valid word
 
 
-  speach analysis (filter bank) -> 
-  feature detection -> 
-    formants, pitch, voiced/unvoiced, energy, nasality, frication
-  segmentation & labeling 
-    phoneme lattice, segment lattice, probabilistic labeling, decision tree, parsing strategy
-  control strategy
+    speach analysis (filter bank) -> 
+    feature detection -> 
+      formants, pitch, voiced/unvoiced, energy, nasality, frication
+    segmentation & labeling 
+      phoneme lattice, segment lattice, probabilistic labeling, decision tree, parsing strategy
+    control strategy
 
-  segmentation
-    find stable regions (where features change very little)
+    segmentation
+      find stable regions (where features change very little)
 
-  pg 47. vowel classifier
+    pg 47. vowel classifier
 
-  drawbacks
-    no well defined automatic tuning procedure (i.e. adjusting descision thresholds)
-    (not evel uniformly agreed upon way to label trainig speech by experts)
+    drawbacks
+      no well defined automatic tuning procedure (i.e. adjusting descision thresholds)
+      (not evel uniformly agreed upon way to label trainig speech by experts)
 
-Approach 2 - pattern-recognition
-  speech is 'learned' via a training phase
+  Approach 2 - pattern-recognition
+    speech is 'learned' via a training phase
 
-  advantages/disadvantages
-    simplicity
-    robustness and invariance to different speech aspects (vocabs, users, features)
-      used for a wide range of speech units (phoneme, word, word phrases, sentence)
-    proven performance
+    advantages/disadvantages
+      simplicity
+      robustness and invariance to different speech aspects (vocabs, users, features)
+        used for a wide range of speech units (phoneme, word, word phrases, sentence)
+      proven performance
 
-    sensitive to amount of training data available (usually more the better)
+      sensitive to amount of training data available (usually more the better)
 
-    reference patterns are sensitive to speaking environment
+      reference patterns are sensitive to speaking environment
 
-    no speech-specific knowledge used - relatively insensitive to vocab, task, syntax, semantics
+      no speech-specific knowledge used - relatively insensitive to vocab, task, syntax, semantics
 
-    computational load for training and classification in generally linearly proportional to number of patterns trained or recognized. computation can become prohibitive
+      computational load for training and classification in generally linearly proportional to number of patterns trained or recognized. computation can become prohibitive
 
-    system is relatively insensitive to sound class making it applicable to a wide range of speech sounds/phrases/words/subwords/sentences
+      system is relatively insensitive to sound class making it applicable to a wide range of speech sounds/phrases/words/subwords/sentences
 
-    relatively straitforward to incorporate syntactic/semantic constraints
+      relatively straitforward to incorporate syntactic/semantic constraints
 
 
-  step 1 - define the test pattern
-    feature measurements output of spectral analysis (filter bank, linear predictive coding, discrete fourier transform)
+    step 1 - define the test pattern
+      feature measurements output of spectral analysis (filter bank, linear predictive coding, discrete fourier transform)
 
-  step 2 - pattern training (creates reference pattern)
-    one or more test patterns corresponding to speech sounds
-    can be result of an exemplar, resultof an averaging technique, a model that charcterizes the features of a pattern
-    spectral distance & global alignment (dynamic time warping)
+    step 2 - pattern training (creates reference pattern)
+      one or more test patterns corresponding to speech sounds
+      can be result of an exemplar, resultof an averaging technique, a model that charcterizes the features of a pattern
+      spectral distance & global alignment (dynamic time warping)
 
-  step 3 - pattern classification
-    compute simliarity between test pattern and reference pattern
+    step 3 - pattern classification
+      compute simliarity between test pattern and reference pattern
 
-  step 4 - decision logic
-    decide which pattern or sequence of patterns best matches unkown test pattern
+    step 4 - decision logic
+      decide which pattern or sequence of patterns best matches unkown test pattern
 
-Approach 3 - AI
+  Approach 3 - AI
   combination of acoustic-phonetic and pattern-recognition
 
   pg 55 different models
@@ -162,86 +206,133 @@ Approach 3 - AI
     Learning
     Adaptation
 
+  submethod 1 - Neural Network
+    could represent seperate approach or be combined with any of the above approaches
 
-submethod 1 - Neural Network
-  could represent seperate approach or be combined with any of the above approaches
+    dense interconnection parallel distributed computational elements
 
-  dense interconnection parallel distributed computational elements
+    pg 57
 
-  pg 57
+    for example inputs to a multilayer perceptron are F1 & F2 map a set of decsions to 10 steady state vowels. classifying on a hyper plane
 
-  for example inputs to a multilayer perceptron are F1 & F2 map a set of decsions to 10 steady state vowels. classifying on a hyper plane
+    advantages
+      massively parallel
+      robust least sensitive to noise
+      connections can adapt
+      sufficiently large newtork can approximate any nonlinearity or nonlinear dynamic system
 
-  advantages
-    massively parallel
-    robust least sensitive to noise
-    connections can adapt
-    sufficiently large newtork can approximate any nonlinearity or nonlinear dynamic system
+    to adapt to dynamic pattern of speech
+      time delay neural network
+      input to each element includes N speech frames
 
-  to adapt to dynamic pattern of speech
-    time delay neural network
-    input to each element includes N speech frames
+  Common Steps
+    
+    Speech Analysis
+      Filter bank methods and linear predictive coding (LPC) methods (spectral descriptions)
 
-Common Steps
+    Feature Extraction
+      formants, pitch, voiced/unvoiced, energy, nasality, frication
+
+    Segmentation
+
+    Steps
+
+      acoustic-phonetic pg 71
+        pattern measurement
+
+      pattern-recognition
+        pattern measurement
+        pattern comparison
+        decision making
+
+SIGNAL PROCESSING aka SPECTRAL ANALYSIS (Front End)
+
+  filter bank, LPC, [cochlea mechanics modeling]
+
+  short time spectral envelope
+
+  vector quantization - encoding a continous spectral representation by a 'typical' spectral shape
+
+  Q bandpass filters
+
+  s(n) passes through band of Q bandpass finter covering frequency range
+    individual filters can do do overlap in frequency
+
+  Xₙ(eⁱᵂⁱ)
+  wᵢ = 2πfᵢ/Fₛ
+  Fₛ is the sampling frequency
+
+  short time spectral representation of signal s(n) at time n as seen through ith bandpass filter
+
+  representations -> frequency spectrum
+
+  Filters
+
+  bandpass -> nonlinear -> lowpass -> sampling rate reduction -> amplitude compression
+
+    bandpass - reject anything that is not speech
+
+    lowpass - filter out noice
+
+    sampling rate reduction - resampled at 40-6- Hz (economy of representation)
+
+    amplitue compression - compress bit-rate
+
+  Implementations
+    infinite impulse response (IIR) (recursive filters)
+
+    finite impulse response (FIR)
+      short-time Fourier transform
+
+  Vector Quantification (pg79 Rabiner)
+
+    goal
+      - compression without loss of 
+
+    advantages
+      - reduced storage
+      - reduced computation
+      - discrete representation of speech sounds
+
+    disadvantages
+      - quantization errors
+      - trade off between quantization errors, processing and storage
+
+    implementation needs
+      - large set of spectral analysis vectors from a training set
+      - similarity/distance between pairs of spectral analysis vectors among training sets
+      - partition training vectors into M clusters (centroid computation procedure)
+      - classification procedure for arbitrary speech
+
+TRAINING
   
-  Speech Analysis
-    Filter bank methods and linear predictive coding (LPC) methods (spectral descriptions)
+  determine domain of speech
+    (talkers, age, accent, gender, speaking rate, background noise, input system(mics,..), vocabularies)
 
-  Feature Extraction
-    formants, pitch, voiced/unvoiced, energy, nasality, frication
+    the more narrow focused the smaller the error rate
 
-  Segmentation
+  Vector Quantization
+    need:
+      compare distance between vectors
 
+    partitioning:
+      design a 1-vector codebook, then double it's size by splitting it
 
-Steps
+MATCHING
 
-  acoustic-phonetic pg 71
-    pattern measurement
+DECISION MAKING
 
-  pattern-recognition
-    pattern measurement
-    pattern comparison
-    decision making
+PROJECT TASKS
 
+  View Waveform
+    [ ] load a .wav file
+    [ ] display a wav in chart
 
-TERMS
+  Transform and View Waveform using library
+    [ ] perform transformations (use a library) T on .wav:
+    [ ] display transformations in chart
 
-  Filter Bank
-  LPC - Linear predictive coding
+  Transform and View Waveform using your own transform algorithm
+    [ ] perform transformations with your on code on .wav:
+    [ ] display transformation in chart
 
-SIGNAL PROCESSING aka Spectral Analysis (Front End)
-
-filter bank, LPC, [cochlea mechanics modeling]
-
-short time spectral envelope
-
-vector quantization - encoding a continous spectral representation by a 'typical' spectral shape
-
-Q bandpass filters
-
-s(n) passes through band of Q bandpass finter covering frequency range
-  individual filters can do do overlap in frequency
-
-Xₙ(eⁱᵂⁱ)
-wᵢ = 2πfᵢ/Fₛ
-Fₛ is the sampling frequency
-
-short time spectral representation of signal s(n) at time n as seen through ith bandpass filter
-
-
-Filters
-
-bandpass -> nonlinear -> lowpass -> sampling rate reduction -> amplitude compression
-
-  bandpass - reject anything that is not speech
-
-  lowpass - filter out noice
-
-  sampling rate reduction - resampled at 40-6- Hz (economy of representation)
-
-  amplitue compression - compress bit-rate
-
-Implementations
-  infinite impulse response (IIR) (recursive filters)
-
-  finite impulse response (FIR)

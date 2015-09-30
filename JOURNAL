@@ -1,8 +1,27 @@
 
-Week 1 - hours 6/30
+Total Hours: 12/300
+
+Resources:
+  [1] Lawerence Rabiner & Biing-Hwang Juang. Fundamentals of Speech Recognition, 1993.
+  [2] Steven B. Damelin & Willard Miller JR. The Mathematics of Signal Processing, Cambridge University Press 2012.
+
+Week 1 - hours 12/30
   Monday Sept 28 - 6 hours
     - Read Rabiner Chapters 1 - 2 & took notes
     - Created rails app for presenting my project.
       Found gems for visualization of code and graphs (spectrograms, etc)
 
-  Tuesday Sept 29
+  Tuesday Sept 29 - 6 hours
+
+    - Read and tookd notes on [Rabiner 1] Chapter 3 on Signal Processing
+
+    - Read about Filter Banks, LPC and Vector Quantification
+      This is all about transforming waveforms into data more suitable for matching
+
+    - Didn't understand the math so i researched some more materials to help me out. [Damelin 2]
+
+    - organized NOTES. added project Tasks section to notes this is where i will prove and display knowledge of what i've learned.
+
+    - Started Reading [Damelin 2]
+
+    - Listened to Kahn Academy lecture on Linear Algebra
