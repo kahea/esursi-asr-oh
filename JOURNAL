@@ -1,11 +1,13 @@
 
-Total Hours: 12/300
+Total Hours: 18/300
 
 Resources:
   [1] Lawerence Rabiner & Biing-Hwang Juang. Fundamentals of Speech Recognition, 1993.
   [2] Steven B. Damelin & Willard Miller JR. The Mathematics of Signal Processing, Cambridge University Press 2012.
+  [3] Mary Jane Sterling. Linear Algebra for Dummies 2009.
+  [4] Martin Vertelli, Jelena Kovacenic, Vivek K Goyel. Foundations of Signal Processing 2014.
 
-Week 1 - hours 12/30
+Week 1 - hours 18/30
   Monday Sept 28 - 6 hours
     - Read Rabiner Chapters 1 - 2 & took notes
     - Created rails app for presenting my project.
@@ -25,3 +27,16 @@ Week 1 - hours 12/30
     - Started Reading [Damelin 2]
 
     - Listened to Kahn Academy lecture on Linear Algebra
+
+  Wed Sept 29 - 6 hours
+
+    - took notes
+
+    - read from [Damelin 2]
+
+    - aslo read from [Sterling 3]
+        - basics of vectors
+
+    - starteed reading [Vertelli 4]
+      I'm thinking this will be a good medium between the two books above.
+

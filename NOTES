@@ -1,6 +1,10 @@
 
 BACKGROUND KNOWLEDGE
 
+  Terms
+    orthogonal - perpedicular (line, segments, planes)
+    vectors orthogonal if inner product equal to 0
+
   Advanced Calculus
   Linear Algebra
   Matrix Theory
@@ -33,7 +37,41 @@ BACKGROUND KNOWLEDGE
 
     Span -> a linear space may be generated from a smaller collection of its members by linear combinations
 
-    Hilbert Space - complete inner product space
+
+    dot poduct - angle between two vectors (formalized by the notion of inner product)
+
+
+    Inner Product 
+      - preserves the concept of 'perpendicular/orthonormal' or 'shortest distance'
+      - normed linear space satisfying a parallelogram law
+
+    Completeness
+      - closed under limiting proceses
+
+    Hilbert Space 
+      - complete inner product space
+
+    Basis
+      - a spanning set which is linearly independent
+
+    V (vector space aka linear space)
+    F (field) is R(REAL) or C(COMPLEX)
+    elements of F called scalars
+    u, v, c are vectors
+    a, b are scalars
+
+    V over fields F capture properties of n >= 1 Euclidean space Vⁿ which is the space of all
+    Rⁿ or Cⁿ column vectors with n entries closed under addition and scalar multiplication
+
+    axioms - associativity, commutativity, identity, inverse, compatibility, distributivity
+
+    linear combination of x, y = ax + by
+
+    nonempty W in V is a subspace of V if au + bv ∈ W for all a,b ∈ F and u, v ∈ W
+
+    Linear combination of vectors
+
+
 
 
 OBJECTIVE
@@ -282,7 +320,22 @@ SIGNAL PROCESSING aka SPECTRAL ANALYSIS (Front End)
     infinite impulse response (IIR) (recursive filters)
 
     finite impulse response (FIR)
+      - finite number of the coefficients hn are nonzero
       short-time Fourier transform
+
+      casual - it doesn't respond to a signal until the signal is received
+
+      2day moving average    y(1)(n) = 1/2(x(n) + x(n-1))
+      2day moving difference y(2)(n) = 1/2(x(n) - x(n-1))
+      xday moving average    y(3)(n) = 1/x k=0Ex-1 x(n-k) 
+
+    Discrete-time Fourier transform (pg 235 Damelin)
+
+      X(w) = n=-∞∑∞ xₙe⁻ⁱⁿʷ
+
+      input is the set of coefficients {xₙ}
+      output is the 2π-periodic function X(w) E L2 [-π, π]
+
 
   Vector Quantification (pg79 Rabiner)
 
