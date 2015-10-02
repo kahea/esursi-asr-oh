@@ -9,7 +9,6 @@ BACKGROUND KNOWLEDGE
   Linear Algebra
   Matrix Theory
 
-
   Linear System
     y = ᶲ(m x n matrix acting on Euclidean space aka linear operator on a Hilbert space) x
 
@@ -33,23 +32,62 @@ BACKGROUND KNOWLEDGE
     overdetermined (filter banks) - can throw soem information away from y and still recover x
     collection Euclidean space
 
-    Vector Space - a linear space of objects closed under associative, distributive and commutative laws
+    Vector Space - a linear space of objects closed (stay is same set) under associative, distributive and commutative laws.
 
-    Span -> a linear space may be generated from a smaller collection of its members by linear combinations
+      Span -> a linear space may be generated from a smaller collection of its members by linear combinations
+        intersection of all subspaces containing the set
+        if S if finite, set of all linear combinations of the elements of S
+
+      dot poduct - angle between two vectors (formalized by the notion of inner product)
+
+      subspace - nonempty set closed under addition and scalar multiplication
+
+      norm of a vector x
+        ||x|| = sqrroot(<x,x>) = sqroot(x²₀ + x²₁)
+
+      unit vector - vector of norm 1
+
+      distance between two vecotrs
+        d(x,y) = ||x-y|| = sqroot(<x -y, x - y>) = sqroot((x₀ - y₀)² + (x₁ - y₁)²)
+
+      orthogonality (pg 25@46 Vertelli)
+
+      standard basis (orthonormal - orthogonal and unit norm) any orthonormal basis has a dual
+        𝑒₀ = [1, 0]ᵀ, 𝑒₁ = [0, 1]ᵀ     aka i & j
+        {𝑒₀, 𝑒₁}
+        <x,y> = 0 & <x,x> = 1
+
+      linearly independent - 0 vector only if aₖ = 0 for all k
+
+      Inner Product (scalar product, dot product)
+        - preserves the concept of 'perpendicular/orthonormal' or 'shortest distance'
+        - normed linear space satisfying a parallelogram law
+        - measures norms and similarities of vectors
+
+        <x,y> = x₀y₀ + x₁y₁
+              = ||x|| ||y|| cos(⍬ₓ - ⍬y)
+
+        antiparallel when ⍬ = π
+
+        orthogonal/perpendicular when <x,y> = 0
 
 
-    dot poduct - angle between two vectors (formalized by the notion of inner product)
-
-
-    Inner Product 
-      - preserves the concept of 'perpendicular/orthonormal' or 'shortest distance'
-      - normed linear space satisfying a parallelogram law
 
     Completeness
       - closed under limiting proceses
 
     Hilbert Space 
       - complete inner product space
+
+      ℂᴺ
+
+      𝓵²(ℤ) - square-summable sequences
+        inner product
+          ⟨𝑥,y⟩ = ∑ₙ 𝑥ₙ𝑦*ₙ
+
+      𝓛²(ℝ) - square-integrable functions
+        inner product
+          ⟨𝑥,y⟩ = ∫ 𝑥(𝑡)𝑦(𝑡)* 𝑑𝑡
 
     Basis
       - a spanning set which is linearly independent
@@ -70,9 +108,6 @@ BACKGROUND KNOWLEDGE
     nonempty W in V is a subspace of V if au + bv ∈ W for all a,b ∈ F and u, v ∈ W
 
     Linear combination of vectors
-
-
-
 
 OBJECTIVE
   classify contiguous signal as
@@ -317,6 +352,10 @@ SIGNAL PROCESSING aka SPECTRAL ANALYSIS (Front End)
     amplitue compression - compress bit-rate
 
   Implementations
+
+    Fourier analyis - every complex wave can be represented as a sum of many sine waves of different frequencies
+
+
     infinite impulse response (IIR) (recursive filters)
 
     finite impulse response (FIR)
@@ -356,6 +395,39 @@ SIGNAL PROCESSING aka SPECTRAL ANALYSIS (Front End)
       - similarity/distance between pairs of spectral analysis vectors among training sets
       - partition training vectors into M clusters (centroid computation procedure)
       - classification procedure for arbitrary speech
+
+  --------------------------------------------------------------------------------------------
+  Understanding Digital Signal Processing 
+  --------------------------------------------------------------------------------------------
+
+  contiguous-time signal
+    ex. 𝑥(𝑡) = sin(2π𝑓₀𝑡)     an angle measured in radians
+      𝑡 independent variable continous time
+
+  discrete-time signal
+    - model of a contiguous signal
+    - independent time variable is quantized defined by index 𝑛
+
+    ex. 𝑥(𝑛) = sin(2π𝑓₀𝑛𝑡ₛ)
+      𝑛𝑡ₛ independent variable discrete-time
+      𝑡ₛ sample period
+      𝑓ₛ = 1/𝑡ₛ
+
+  frequency domain
+    𝑋ᵢ(𝑚)
+    - peak amplitude of each frequency
+
+  amplitude 
+    - how far and in what direction the variable differs from zero
+
+  magnitude (absolute value) 
+    |𝑥₁(𝑛)| bars denote magnitude
+    - how far regardless of direction the variaable differs from zero (always positive)
+
+  power
+     = |𝑥₁(𝑛)|²
+    - amplitude (or magnitude) squared
+    - moderatley different amplitudes can have much larger relative powers
 
 TRAINING
   

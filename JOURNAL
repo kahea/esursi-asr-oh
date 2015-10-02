@@ -1,13 +1,16 @@
 
-Total Hours: 18/300
+Day:          4/070             6%
+Total Hours: 24/300             8%
+Schedule:    24/(4*(300/70))  140%
 
 Resources:
   [1] Lawerence Rabiner & Biing-Hwang Juang. Fundamentals of Speech Recognition, 1993.
   [2] Steven B. Damelin & Willard Miller JR. The Mathematics of Signal Processing, Cambridge University Press 2012.
   [3] Mary Jane Sterling. Linear Algebra for Dummies 2009.
   [4] Martin Vertelli, Jelena Kovacenic, Vivek K Goyel. Foundations of Signal Processing 2014.
+  [5] Richard G. Lyons. Understanding Digital Signal Processing 2011.
 
-Week 1 - hours 18/30
+Week 1 - hours 24/30
   Monday Sept 28 - 6 hours
     - Read Rabiner Chapters 1 - 2 & took notes
     - Created rails app for presenting my project.
@@ -28,7 +31,7 @@ Week 1 - hours 18/30
 
     - Listened to Kahn Academy lecture on Linear Algebra
 
-  Wed Sept 29 - 6 hours
+  Wed Sept 30 - 6 hours
 
     - took notes
 
@@ -40,3 +43,12 @@ Week 1 - hours 18/30
     - starteed reading [Vertelli 4]
       I'm thinking this will be a good medium between the two books above.
 
+  Thur Oct 1 - 6 hours
+
+    - watches some more Kahn academy videos on linear algebra about subspaces and basis's 
+
+    - read more from [Vertelli 4]
+      this was still a little too mathematical for me write now so i'm switching to another book that is written from more of and enginerring approach and specifically limits it's domain to discrete-signal processing
+
+    - read from [Lyons 5 Understanding Digital Signal Processing]
+      i like this books so far the domain is restricted to discrete-signals hopefully this will give me a better idea of how to start modeling my data structures to represent discrete-signals of speech
