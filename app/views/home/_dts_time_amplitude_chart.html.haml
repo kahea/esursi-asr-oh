@@ -1,0 +1,17 @@
+DTS Chart:
+%br
+name: 
+= @dts.name
+%br
+sampling rate: 
+= @dts.sampling_rate_str
+%br
+sampling period: 
+= @dts.sampling_period
+%br
+seconds:
+= @dts.seconds
+%br
+%div.dts-time-amplitude-chart{ id: "dts-#{dts.name}-time-amplitude-chart" }
+%script
+	dts_time_amplitude_chart("dts-#{dts.name}-time-amplitude-chart", "#{dts.amplitudes.map { |a| a.round(2) } }");
