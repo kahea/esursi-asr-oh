@@ -1,7 +1,7 @@
 
-Day:          4/070             6%
-Total Hours: 24/300             8%
-Schedule:    24/(4*(300/70))  140%
+Day:          5/070             7%
+Total Hours: 30/300            10%
+Schedule:    30/(5*(300/70))  140%
 
 Resources:
   [1] Lawerence Rabiner & Biing-Hwang Juang. Fundamentals of Speech Recognition, 1993.
@@ -52,3 +52,11 @@ Week 1 - hours 24/30
 
     - read from [Lyons 5 Understanding Digital Signal Processing]
       i like this books so far the domain is restricted to discrete-signals hopefully this will give me a better idea of how to start modeling my data structures to represent discrete-signals of speech
+
+  Fri Oct 2 - 6 hours
+
+    - started programming. 
+
+    - created a DTS (discrete-time-signal) class to hold all information for a dts
+
+    - created a simple DTS that is a simple sign wave and displayed it as a graph
