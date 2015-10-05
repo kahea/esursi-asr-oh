@@ -56,10 +56,10 @@ function Graph(div, data) {
 
   svg.append('g')
   	.attr({
-  		// class: 'axis'
   		class: 'axis',
   		'stroke-width': 1,
-  		transform: "translate(0," + (plot_height/2) + ")"
+  		transform: "translate(0," + (plot_height/2) + ")",
+      ticks: 2
   	})
   	.call(xaxis);
 
@@ -72,12 +72,19 @@ function Graph(div, data) {
   	.attr({
   		class: 'axis',
   		'stroke-width': 1,
-  		// transform: "translate(" + padding.left + ",20)"
-  		// transform: "translate(" + padding.left + "," + padding.top + ")"
   	})
   	.call(yaxis);
 
-
+  for (i in data) {
+    svg.append('line')
+      .style('stroke', 'black')
+      .attr({
+        x1: xscale(i),
+        y1: (height/2) - padding.top,
+        x2: xscale(i),
+        y2: yscale(data[i]),
+      })
+  }
 
 }
 
