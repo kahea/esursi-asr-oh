@@ -19,7 +19,7 @@ function Graph(div, data) {
   	.domain([0, data.length]);
 
   yscale = d3.scale.linear()
-  	.range([0, plot_height])
+  	.range([plot_height, 0])
   	.domain([data_min, data_max]);
 
   xaxis = d3.svg.axis()
@@ -31,7 +31,6 @@ function Graph(div, data) {
   	.scale(yscale)
   	.orient('left');
 
-  // d3.select('#'+div)
   svg = container
     .append('svg')
       .attr({
@@ -48,7 +47,7 @@ function Graph(div, data) {
   	.append('circle')
   	.attr({
   		cx: function(d, i) { return xscale(i) },
-  		cy: function(d) { return yscale(d) },
+  		cy: function(d) { return (yscale(d) * 1) },
   		r: 3,
   		// fill: red
   		// fill: rgb(1,1,1)
@@ -90,5 +89,5 @@ function Graph(div, data) {
 
 function dts_time_amplitude_chart(div, data) {
 	graph = new Graph(div, data);
-	// console.log(graph);
+	console.log(data);
 }

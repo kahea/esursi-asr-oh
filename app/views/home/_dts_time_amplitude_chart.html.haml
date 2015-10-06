@@ -1,17 +1,17 @@
 DTS Chart:
 %br
 name: 
-= @dts.name
+= dts.name
 %br
 sampling rate: 
-= @dts.sampling_rate_str
+= dts.sampling_rate_str
 %br
 sampling period: 
-= @dts.sampling_period
+= dts.sampling_period.round(3)
 %br
-seconds:
-= @dts.seconds
+samples:
+= dts.samples
 %br
-%div.dts-time-amplitude-chart{ id: "dts-#{dts.name}-time-amplitude-chart" }
+%div.dts-time-amplitude-chart{ id: "dts-#{dts.name.gsub(' ', '-').gsub('+', 'plus')}-time-amplitude-chart" }
 %script
-	dts_time_amplitude_chart("dts-#{dts.name}-time-amplitude-chart", "#{dts.amplitudes.map { |a| a.round(2) } }");
+	dts_time_amplitude_chart("dts-#{dts.name.gsub(' ', '-').gsub('+', 'plus')}-time-amplitude-chart", "#{dts.amplitudes.map { |a| a.round(2) } }");

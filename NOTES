@@ -396,39 +396,6 @@ SIGNAL PROCESSING aka SPECTRAL ANALYSIS (Front End)
       - partition training vectors into M clusters (centroid computation procedure)
       - classification procedure for arbitrary speech
 
-  --------------------------------------------------------------------------------------------
-  Understanding Digital Signal Processing 
-  --------------------------------------------------------------------------------------------
-
-  contiguous-time signal
-    ex. 𝑥(𝑡) = sin(2π𝑓₀𝑡)     an angle measured in radians
-      𝑡 independent variable continous time
-
-  discrete-time signal
-    - model of a contiguous signal
-    - independent time variable is quantized defined by index 𝑛
-
-    ex. 𝑥(𝑛) = sin(2π𝑓₀𝑛𝑡ₛ)
-      𝑛𝑡ₛ independent variable discrete-time
-      𝑡ₛ sample period
-      𝑓ₛ = 1/𝑡ₛ
-
-  frequency domain
-    𝑋ᵢ(𝑚)
-    - peak amplitude of each frequency
-
-  amplitude 
-    - how far and in what direction the variable differs from zero
-
-  magnitude (absolute value) 
-    |𝑥₁(𝑛)| bars denote magnitude
-    - how far regardless of direction the variaable differs from zero (always positive)
-
-  power
-     = |𝑥₁(𝑛)|²
-    - amplitude (or magnitude) squared
-    - moderatley different amplitudes can have much larger relative powers
-
 TRAINING
   
   determine domain of speech
@@ -461,3 +428,80 @@ PROJECT TASKS
     [ ] perform transformations with your on code on .wav:
     [ ] display transformation in chart
 
+--------------------------------------------------------------------------------------------
+Understanding Digital Signal Processing 
+--------------------------------------------------------------------------------------------
+
+contiguous-time signal
+  ex. 𝑥(𝑡) = sin(2π𝑓₀𝑡)     an angle measured in radians
+    𝑡 independent variable continous time
+
+discrete-time signal (DTS)
+  - model of a contiguous signal
+  - independent time variable is quantized defined by index 𝑛
+
+  ex. 𝑥(𝑛) = sin(2π𝑓₀𝑛𝑡ₛ)
+    𝑛𝑡ₛ independent variable discrete-time
+    𝑡ₛ sample period
+    𝑓ₛ = 1/𝑡ₛ
+
+frequency domain
+  𝑋ᵢ(𝑚)
+  - peak amplitude of each frequency
+
+amplitude 
+  - how far and in what direction the variable differs from zero
+
+magnitude (absolute value) 
+  |𝑥₁(𝑛)| bars denote magnitude
+  - how far regardless of direction the variaable differs from zero (always positive)
+
+power
+   = |𝑥₁(𝑛)|²
+  - amplitude (or magnitude) squared
+  - moderatley different amplitudes can have much larger relative powers
+
+LTI - linear time invariant
+  - commutative
+  - 'unit impulse response' - time-domain ouput sequence when the input is a single unity-valued sample preceded and followed by zero-valued samplse
+  - 'frequency response' - take Fourier transform (DFT) of impluse response
+
+linear
+  - output is the sum of the outputs of it's parts
+
+time-invariant
+  - delay in the input causes equivalent time delay in output
+
+Discrete Fourier Transform (DFT)
+  - used to determine harmonic, or frequency content of a DTS
+
+  exponential form
+    X(m) = n=0 ∑ N-1 ( x(n)e ^(-j2πnm/N) )
+
+    e is base of natural logarithms
+    j (*sometimes i) = sqroot(-1)    
+
+  rectangular form
+    X(m) = n=0 ∑ N-1 ( x(n)[cos(2πnm/N) - j sin(2πnm/N)] )
+
+  X(m) = the mth DFT output component
+     m = the index of the DFT output in the frequency domain
+  x(n) = the sequence of input samples
+     n = the time-domain index
+     j = sqroot(-1)
+     N = number of samples of input sequence and number of frequency points in the DFT
+
+
+  X(0) = x(0)cos(2π * 0 * 0 / 4) - jx(0)sin(2π * 0 * 0 / 4)
+       + x(1)cos(2π * 1 * 0 / 4) - jx(1)sin(2π * 1 * 0 / 4)
+       + x(2)cos(2π * 2 * 0 / 4) - jx(2)sin(2π * 2 * 0 / 4)
+       + x(3)cos(2π * 3 * 0 / 4) - jx(3)sin(2π * 3 * 0 / 4)
+
+  X(1) = x(0)cos(2π * 0 * 1 / 4) - jx(0)sin(2π * 0 * 1 / 4)
+       + x(1)cos(2π * 1 * 1 / 4) - jx(1)sin(2π * 1 * 1 / 4)
+       + x(2)cos(2π * 2 * 1 / 4) - jx(2)sin(2π * 2 * 1 / 4)
+       + x(3)cos(2π * 3 * 1 / 4) - jx(3)sin(2π * 3 * 1 / 4)
+
+  each X(m) output is the sum of the point-for-point product between an input sequence of signal values and a complex sinusoid of the form cos(∅) - jsin(∅)
+
+  fundamental fequence of sinusoids is 𝑓ₛ/N = samples per second / points
