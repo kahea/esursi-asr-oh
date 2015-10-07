@@ -3,15 +3,22 @@ DTS Chart:
 name: 
 = dts.name
 %br
+function:
+= dts.function
+%br
 sampling rate: 
-= dts.sampling_rate_str
+= dts.sampling_rate
+/ %br
+/ sampling period: 
+/ = dts.sampling_period.round(3)
 %br
-sampling period: 
-= dts.sampling_period.round(3)
+periods:
+= dts.periods
 %br
-samples:
-= dts.samples
+%div.dts-chart{ id: "dts-#{dts.jsid}-time-amplitude-chart" }
 %br
-%div.dts-time-amplitude-chart{ id: "dts-#{dts.name.gsub(' ', '-').gsub('+', 'plus')}-time-amplitude-chart" }
+Magnitude (Discrete Fourier Transform)
+%div.dts-chart{ id: "dts-#{dts.jsid}-time-magnitude-chart" }
 %script
-	dts_time_amplitude_chart("dts-#{dts.name.gsub(' ', '-').gsub('+', 'plus')}-time-amplitude-chart", "#{dts.amplitudes.map { |a| a.round(2) } }");
+	chart_amplitude("dts-#{dts.jsid}-time-amplitude-chart", "#{dts.amplitudes.map { |a| a.round(2) } }");
+	chart_magnitude("dts-#{dts.jsid}-time-magnitude-chart", "#{dts.magnitudes.map { |a| a.round(2) } }");

@@ -1,23 +1,35 @@
 
-Day:          6/070             9%
-Total Hours: 37/300            12%
-Schedule:    37/(6*(300/70))  144%
+Day:          7/070            10%
+Total Hours: 43/300            14%
+Schedule:    43/(7*(300/70))  143%
 
 Resources:
+--------------------------------------------------------------------------------------
   [1] Lawerence Rabiner & Biing-Hwang Juang. Fundamentals of Speech Recognition, 1993.
   [2] Steven B. Damelin & Willard Miller JR. The Mathematics of Signal Processing, Cambridge University Press 2012.
   [3] Mary Jane Sterling. Linear Algebra for Dummies 2009.
   [4] Martin Vertelli, Jelena Kovacenic, Vivek K Goyel. Foundations of Signal Processing 2014.
   [5] Richard G. Lyons. Understanding Digital Signal Processing 2011.
 
-Week 2 - hours 7/30
+--------------------------------------------------------------------------------------
+Week 2 - hours 13/30
+--------------------------------------------------------------------------------------
   Monday Oct 5 - 7 hours
     - Implemented the Discrete Fourier Transform
         tested output against example in [Lyons 5]
 
     - still need to graph frequency magnitudes
 
+  Monday Oct 6 - 6 hours
+    - Created graphs for Magnitude
+
+    - Watched videos on imaginary and complex numbers
+
+    - Trying to understand Discrete Fourier Transformation in depth
+
+--------------------------------------------------------------------------------------
 Week 1 - hours 30/30
+--------------------------------------------------------------------------------------
   Monday Sept 28 - 6 hours
     - Read Rabiner Chapters 1 - 2 & took notes
     - Created rails app for presenting my project.
