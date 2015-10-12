@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	margin-left: 30px;
+}
+
 .axis path,
 .axis line {
 	fill: none;
@@ -15,6 +19,12 @@
 }
 
 .dts-chart {
+	width: 700px;
+	height: 300px;
+	background-color: #F0F0F0;
+}
+
+.sound-graphic-chart {
 	width: 700px;
 	height: 300px;
 	background-color: #F0F0F0;

@@ -505,3 +505,57 @@ Discrete Fourier Transform (DFT)
   each X(m) output is the sum of the point-for-point product between an input sequence of signal values and a complex sinusoid of the form cos(∅) - jsin(∅)
 
   fundamental fequence of sinusoids is 𝑓ₛ/N = samples per second / points
+
+--------------------------------------------------------------------------------------------
+Fourier Transformations
+--------------------------------------------------------------------------------------------
+
+sine
+  opposite / hypotenuse
+  adjacent / hypotenuse
+
+  sin(x) = cos(90 -x)
+  cos(x) = sin(90 -x)
+
+angular frequency
+  w = 2πv
+  v = frequency in Hz
+
+T = periond of the function f(t)
+
+w = 0, 2π/T, 4π/T, 6π/T
+
+any periodic function can be represented as a superposition of sine-function and cosine-function with appropriate amplitudes
+
+𝑖 = √-1
+
+eⁱˣ = cos(x) + 𝑖sin(x)
+
+
+compare with N sinusoidal basis waveforms
+
+  dft analysis basis function
+
+correlation
+  how strongly present one signal is in another
+
+magnitude is a measure of correlation
+
+
+--------------------------------------------------------------------------------------------
+Sound Waves
+--------------------------------------------------------------------------------------------
+
+compression
+  high pressure within longitudinal wave
+  particles to bunch together, increase density and pressure
+
+rarefaction
+  low pressure within longitudinal wave
+  particles to move appart, decreases density and pressure
+
+--------------------------------------------------------------------------------------------
+Presentation
+--------------------------------------------------------------------------------------------
+
+play sounds of different frequencies ask audience if they can hear it

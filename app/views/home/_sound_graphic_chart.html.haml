@@ -1,0 +1,10 @@
+Sound Graphic
+%br
+name:
+= sound_graphic.name
+%br
+- chart_id = "sound-graphic-#{sound_graphic.jsid}-chart"
+%div.sound-graphic-chart{ id: chart_id }
+
+%script
+	chart_sound_graphic("#{chart_id}", #{sound_graphic.width}, #{sound_graphic.height});

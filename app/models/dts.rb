@@ -76,6 +76,13 @@ class DTS
 		@function = "Math.sin(2*Math::PI*(1/(#{options[:frequency]} * #{@sampling_rate})*n) * #{options[:amplitude]}"
 	end
 
+	def gen_cos_one(options = {})
+		@amplitudes.size.times do |n|
+			self[n] = Math.cos(2*Math::PI*(1/(options[:frequency] * @sampling_rate).to_f)*n) * options[:amplitude]
+		end
+		@function = "Math.sin(2*Math::PI*(1/(#{options[:frequency]} * #{@sampling_rate})*n) * #{options[:amplitude]}"
+	end
+
 	def gen_dft_example_1
 		@samples.times do |n|
 			a = Math.sin(2 * Math::PI * 1000.0 * n * 1/8000.0 )

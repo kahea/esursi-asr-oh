@@ -175,7 +175,67 @@ function chart_magnitude(div, data) {
 
 }
 
-// function dts_time_amplitude_chart(div, data) {
-// 	graph = new Graph(div, data);
-// 	console.log(data);
-// }
+function chart_sound_graphic(div, width, height, data) {
+
+  // var padding = { top: 20, right: 20, bottom: 20, left: 20 };
+  // var padding_x = padding.left + padding.right;
+  // var padding_y = padding.top + padding.bottom;
+  // var plot_width = width - padding_x;
+  // var plot_height = height - padding_y;
+
+  // var width = $('#'+div).width();
+  // var height = $('#'+div).height();
+
+  // generate particle points
+  
+
+  var particle_density = new Array(); // 0 - 1.0
+
+  spread = 10;
+
+  for (i=0; i < width/spread; i++) {
+
+    frequency = 1;
+    rate = width/spread;
+    n = i * spread
+
+    console.log( Math.sin(2 * Math.PI * frequency * rate * n ) ) ;
+  }
+
+  var particle_data = new Array();
+  spread = 0.3;
+  for (i = 0; i < height/spread; i++) {
+    particle_data[i] = i * spread;
+  }
+
+  xscale = d3.scale.linear()
+    .range([0, width])
+    .domain([0, particle_data.length]);
+
+  yscale = d3.scale.linear()
+    .range([0, height])
+    .domain([0 , 20 ]);
+
+  svg = d3.select('#'+div)
+    .append('svg')
+      .attr({
+        width: width,
+        height: height,
+        //transform: "translate(" + padding.left + "," + padding.top + ")"
+      });
+
+  svg.selectAll('circle')
+    .data(particle_data)
+    .enter()
+    .append('circle')
+    .style('fill', 'black')
+    .attr({
+      cx: function(d, i) { return  30 },
+      cy: function(d) { return yscale(d) },
+      r: 3,
+      // fill: red
+      // fill: rgb(1,1,1)
+    })
+
+  console.log(particle_data);
+}

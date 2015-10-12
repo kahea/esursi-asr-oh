@@ -1,14 +1,12 @@
 The Evergreen State College - Undergraduate Research in Scientific Inquiry - Automatic Speech Recognition ma ka Ōlelo Hawaiʻi
 %p
-= @foo
-= render 'dts_time_amplitude_chart', dts: @dts
-= render 'dts_time_amplitude_chart', dts: @dts2
-= render 'dts_time_amplitude_chart', dts: @dts3
-= render 'dts_time_amplitude_chart', dts: @dts4
-= render 'dts_time_amplitude_chart', dts: @dts5
+/ = render 'dts_time_amplitude_chart', dts: @dts
+/ = render 'dts_time_amplitude_chart', dts: @dtsc
+/ = render 'dts_time_amplitude_chart', dts: @dts2
+/ = render 'dts_time_amplitude_chart', dts: @dts3
+/ = render 'dts_time_amplitude_chart', dts: @dts4
+/ = render 'dts_time_amplitude_chart', dts: @dts5
 / = render 'dts_time_amplitude_chart', dts: @dts6
 / = render 'dts_time_amplitude_chart', dts: @dts7
 %p
-/ - @dts4.magnitude_frequencies.each_with_index do |m, i|
-/ 	= "m: #{m}, f: #{@dts.magnitudes[i]}"
-/ 	%br
+= render 'sound_graphic_chart', sound_graphic: @sound_graphic

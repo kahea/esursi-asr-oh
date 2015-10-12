@@ -1,7 +1,7 @@
 
-Day:          7/070            10%
-Total Hours: 43/300            14%
-Schedule:    43/(7*(300/70))  143%
+Day:          14/070            20%
+Total Hours:  49/300            16%
+Schedule:     49/(14*(300/70))  82%
 
 Resources:
 --------------------------------------------------------------------------------------
@@ -10,9 +10,10 @@ Resources:
   [3] Mary Jane Sterling. Linear Algebra for Dummies 2009.
   [4] Martin Vertelli, Jelena Kovacenic, Vivek K Goyel. Foundations of Signal Processing 2014.
   [5] Richard G. Lyons. Understanding Digital Signal Processing 2011.
+  [6] T. Butz. Fourier Transformation for Pedestrians 2006
 
 --------------------------------------------------------------------------------------
-Week 2 - hours 13/30
+Week 2 - hours 19/30
 --------------------------------------------------------------------------------------
   Monday Oct 5 - 7 hours
     - Implemented the Discrete Fourier Transform
@@ -20,12 +21,23 @@ Week 2 - hours 13/30
 
     - still need to graph frequency magnitudes
 
-  Monday Oct 6 - 6 hours
+  Tuesday Oct 6 - 6 hours
     - Created graphs for Magnitude
 
     - Watched videos on imaginary and complex numbers
 
     - Trying to understand Discrete Fourier Transformation in depth
+
+  Wedensday Oct 7 - 6 hours
+    - more work understanding DFT
+
+    - got sidetracked thinking about sound waves and how to display them. i realized that it's not important to have any visualizations for sound waves. started writing this code but i think i'll stop
+
+  Thursday Oct 8 - 0 hours
+    - getting ready for my brothers wedding and spending time with family
+
+  Friday Oct 8 - 0 hours
+    - getting ready for my brothers wedding and spending time with family
 
 --------------------------------------------------------------------------------------
 Week 1 - hours 30/30
