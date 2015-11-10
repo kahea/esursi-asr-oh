@@ -7,4 +7,4 @@ name:
 %div.sound-graphic-chart{ id: chart_id }
 
 %script
-	chart_sound_graphic("#{chart_id}", #{sound_graphic.width}, #{sound_graphic.height});
+	chart_sound_graphic("#{chart_id}", "#{@dts.amplitudes.map { |a| a.round(2) } }");

@@ -2,7 +2,15 @@ class HomeController < ApplicationController
 
 	def index
 
-		@sound_graphic = SoundGraphic.new(name: 'foo', width: 700, height:300)
+		# @sound_graphic = SoundGraphic.new(name: 'foo', width: 700, height:300)
+
+		# @dts = DTS.new(name: 'sine1', sampling_rate: 44100, seconds: 220/44100.0 * 1)
+		# @dts.gen_sine_one(frequency: 220, amplitude: 1)
+		# @dts = DTS.new(name: 'sine1', sampling_rate: 16000, seconds: 0.025)
+		@dts = DTS.new(name: 'sine1', sampling_rate: 16000, seconds: 0.032)
+		@dts.gen_sine_one(frequency: 400, amplitude: 1)
+		@dts.calculate_fft
+		# @dts.gen_dft_example_1
 
 
 		# @dts = DTS.new(name: 'sine1', sampling_rate: 32, samples: 32 * 2)

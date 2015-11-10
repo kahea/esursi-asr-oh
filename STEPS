@@ -1,0 +1,56 @@
+
+
+
+
+Pre-processing
+
+	- convert a discrte signal into set of spectral vectors X
+
+		- use a windowed function of 10ms which is common
+
+		- convert X to coefficients
+
+	- mark training data
+
+Training
+
+	Acoustic Model
+		- train data
+
+	Language Model
+		- based on N grams
+		- probability of W occuring
+
+
+Matching
+
+
+Modeling - training data
+
+	A
+
+	Define Vocabulary - set of units modeled by the acoustic models
+
+			- hklmnptw
+			- aeiou'
+
+			ha, he, hi, ho, hu
+			ka, ke, ki, ko, ku
+			la, le, li, lo, lu
+			ma, me, mi, mo, mu
+			na, ne, ni, no, nu
+			pa, pe, pi, po, pu
+			ta, te, ti, to, tu
+			wa, we, wi, wo, wu
+
+			  , ae, ai, ao, au, a'
+			ea,   , ei, eo, eu, e'
+			ia, ie,   , io, iu, i'
+			oa, oe, oi,   , ou, o'
+			ua, ue, ui, uo,   , u'
+			'a, 'e, 'i, 'o, 'u,
+
+	Markup Training Data
+
+	Generate model for each vocabulary unit
+

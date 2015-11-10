@@ -1,6 +1,6 @@
 The Evergreen State College - Undergraduate Research in Scientific Inquiry - Automatic Speech Recognition ma ka Ōlelo Hawaiʻi
 %p
-/ = render 'dts_time_amplitude_chart', dts: @dts
+= render 'dts_time_amplitude_chart', dts: @dts, pressure: false
 / = render 'dts_time_amplitude_chart', dts: @dtsc
 / = render 'dts_time_amplitude_chart', dts: @dts2
 / = render 'dts_time_amplitude_chart', dts: @dts3
@@ -8,5 +8,10 @@ The Evergreen State College - Undergraduate Research in Scientific Inquiry - Aut
 / = render 'dts_time_amplitude_chart', dts: @dts5
 / = render 'dts_time_amplitude_chart', dts: @dts6
 / = render 'dts_time_amplitude_chart', dts: @dts7
-%p
-= render 'sound_graphic_chart', sound_graphic: @sound_graphic
+/ %p
+/ = render 'sound_graphic_chart', sound_graphic: @dts
+/ = render 'dts_time_amplitude_chart', dts: @dts
+/ %script
+/ 	play(
+%script
+	play("#{@dts.amplitudes}")
