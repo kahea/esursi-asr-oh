@@ -4,7 +4,7 @@ module Wave
 
 	def sine(magnitude, frequency, sampling_rate, periods)
 		ampltidues = []
-		(sampling_rate * periods).times do |n|
+		(sampling_rate * periods).to_i.times do |n|
 			ampltidues.push(magnitude * Math.sin(2 * Math::PI * frequency.to_f * n * 1/sampling_rate.to_f))
 		end
 		ampltidues
@@ -12,7 +12,7 @@ module Wave
 
 	def cosine(magnitude, frequency, sampling_rate, periods)
 		ampltidues = []
-		(sampling_rate * periods).times do |n|
+		(sampling_rate * periods).to_i.times do |n|
 			ampltidues.push(magnitude * Math.cos(2 * Math::PI * frequency.to_f * n * 1/sampling_rate.to_f))
 		end
 		ampltidues

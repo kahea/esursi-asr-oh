@@ -15,6 +15,15 @@ Resources:
   [5] Richard G. Lyons. Understanding Digital Signal Processing 2011.
   [6] T. Butz. Fourier Transformation for Pedestrians 2006
 
+
+Wed Nov 11 6 hours
+  redid DFT implemeted IDFT. Got chaining of window functions and DFT
+  and such. Got rid of rails stuffs, simpler and faster to do everything
+  through the console.
+
+Tuesday Nov 10 6 hours
+  printing graphs making code modules. Window functions
+
 MOnday Nov 9th 6 hours
   read and took notes on Finite Impulse Response filters
   remodeling code, going to print graphs in console hopefully it will save time

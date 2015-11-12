@@ -1,5 +1,6 @@
-class DTS
+require 'chart'
 
+class DTS
 	attr_reader :name, :function, :sampling_rate, :samples, :seconds, :amplitudes, :magnitudes, :dft_data, :print
 
 	def initialize(name, sampling_rate, amplitudes)
@@ -33,89 +34,8 @@ class DTS
 		return amplitudes
 	end
 
-	def printwave(options = {})
-
-		if options[:height]
-			yheight = options[:height]
-		else
-			yheight = 41
-		end
-
-		if options[:xscale]
-			xscale = options[:xscale]
-		else
-			xscale = 2
-		end
-
-		# height = (@amplitudes.max * 20).to_i
-		xscale = xscale.floor
-
-		width = @amplitudes.size * xscale
-
-		maxmag = @amplitudes.max
-
-		yscale = ((yheight/2) / @amplitudes.max).to_i
-
-		chart = ""
-
-		width.times do |j|
-			chart << " "
-		end
-		chart << "\n"
-		
-		yheight.times do |i| 
-
-			# chart << ("%02d" % i) << " "
-
-			yscaled = (((yheight/2.to_f) - i) / yscale).to_f
-
-			if yscaled >= 0
-				chart << " " << ("%.2f" % yscaled) << " "
-			else
-				chart << ("%.2f" % yscaled) << " "
-			end
-
-			width.times do |j|
-
-				if xscale > 1
-					k = j / xscale
-					if j % 2 == 0
-						chart << " "
-						next
-					end
-				else
-					k = j
-				end
-
-				a = -@amplitudes[k]
-				ab = a * yscale
-				ac = (ab + yheight/2).to_i
-
-				if ac == i
-					chart << '*'
-				elsif i == yheight/2
-					chart << '-'
-				elsif a < 0
-					if i >= ac && i < yheight/2
-						chart << '|'
-					else
-						chart << ' '
-					end
-				else
-					if i <= ac && i > yheight/2
-						chart << '|'
-					else
-						chart << ' '
-					end
-				end
-			end
-			chart << "\n"
-		end
-		width.times do |j|
-			chart << " "
-		end
-		chart << "\n"
-		puts chart
+	def print()
+		Chart.print(self.amplitudes)
 	end
 
 	# def jsid
@@ -239,7 +159,5 @@ class DTS
 	# def amplitudes_granular(granularity)
 	# 	@amplitudes.each_with_index.map { |x, n| x if n % granularity == 0}.compact
 	# end
-
-
 
 end
