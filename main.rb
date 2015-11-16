@@ -157,6 +157,7 @@ module Fourier
         sum += data[n] * Complex(Math.cos(angle), -Math.sin(angle))
       end
       dft.push(sum.magnitude)
+      # dft.push(sum)
     end
     dft
   end
@@ -175,9 +176,54 @@ module Fourier
     idft
   end
 
-  def fft(data)
+  def fft(input)
+    return input if input.empty?
+    # pad input so it is a power of 2
+    ((2 ** (Math.log2(input.size).ceil)) - input.size).times { |i| input << 0.0 }
+    fft_r(input).map { |i| i.magnitude }
+  end
+
+  def ifft(input)
 
   end
+
+  # def fftr(input)
+  #   return input if input.size <= 1
+
+  #   even = Array.new(input.size / 2) { |i| input[2 * i] }
+  #   odd  = Array.new(input.size / 2) { |i| input[2 * i + 1] }
+
+  #   fft_even = fft(even)
+  #   fft_odd  = fft(odd)
+  #   fft_even.concat(fft_even)
+  #   fft_odd.concat(fft_odd)
+
+  #   Array.new(input.size) {|i| (fft_even[i] + fft_odd[i] * (Math::E ** Complex(0, 2 * Math::PI * (-i) / input.size)) ) }
+  # end
+
+  #####################################################################################
+  # http://www.gregfjohnson.com/fftruby/
+  #####################################################################################
+  def fft_r(vec)
+    return vec if vec.size <= 1
+
+    even = Array.new(vec.size / 2) { |i| vec[2 * i] }
+    odd  = Array.new(vec.size / 2) { |i| vec[2 * i + 1] }
+
+    fft_even = fft(even)
+    fft_odd  = fft(odd)
+
+    fft_even.concat(fft_even)
+    fft_odd.concat(fft_odd)
+
+    Array.new(vec.size) {|i| (fft_even[i] + fft_odd [i] * omega(-i, vec.size)) }
+  end
+
+  def omega(k, n)
+    Math::E ** Complex(0, 2 * Math::PI * k / n)
+  end
+  ####################################################################################
+
 end
 
 module Frame
@@ -262,6 +308,5 @@ D1 = DTS.new('sine1', 8000, Wave.sine(1, 200, 8000, 1))
 D2 = DTS.new('sine2', 8000, Wave.sine(1, 700, 8000, 1))
 D3 = DTS.new('sine3', 8000, Window.hamming(Wave.sine(1, 700, 8000, 1)))
 D4 = DTS.new('sine3', 8000, Wave.sine(1, 10000, 8000, 1))
-
-D5 = DTS.new('sine3', 8000, Sound.record(8000, 'test'))
+# D5 = DTS.new('sine3', 8000, Sound.record(8000, 'test'))
 
